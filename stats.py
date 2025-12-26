@@ -12,4 +12,17 @@ def character_count(text):
         else:
             if char in char_num:
                 char_num[char] += 1
-    print(char_num)
+    return char_num
+
+def sorted_list(dictionary):
+    def sort_on(x):
+        return x["num"]
+    ordered = []
+
+    for char in dictionary:
+        base = {"char": "a", "num": 0}
+        base["char"] = char
+        base["num"] = dictionary[char]
+        ordered.append(base)
+    ordered.sort(reverse=True, key=sort_on)
+    return ordered
