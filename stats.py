@@ -1,7 +1,7 @@
 def get_word_count(text):
     words = text.split()
     number = len(words)
-    print(f"Found {number} total words")
+    return(f"Found {number} total words")
 
 def character_count(text):
     char_num = {}
