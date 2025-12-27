@@ -1,3 +1,4 @@
+import sys
 from stats import get_word_count, character_count, sorted_list
 
 def get_book_text(filepath):
@@ -5,14 +6,18 @@ def get_book_text(filepath):
         return f.read()
 
 def get_book():
-    text = get_book_text("books/frankenstein.txt")
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else: 
+        text = get_book_text(sys.argv[1])
     return text
 
 def turn_list_to_string(lis):
     char_string = ""
     for dic in lis:
         if dic["char"].isalpha():
-            char_string += dic["char"] + ":" + " " + str(dic["num"]) + "\n"
+            char_string += dic["char"] + ": " + str(dic["num"]) + "\n"
     return char_string
 
 book = get_book()
